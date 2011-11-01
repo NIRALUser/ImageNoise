@@ -41,6 +41,15 @@
       <default></default>
     </image>
     <image>
+      <name>insideRegion2</name>
+      <label>Second Inside Region</label>
+      <description>Second Inside Region</description>
+      <channel>input</channel>
+      <flag>c</flag>
+      <longflag>inside2</longflag>
+      <default></default>
+    </image>
+    <image>
       <name>outsideRegion</name>
       <label>Outside Region</label>
       <description>Outside Region</description>

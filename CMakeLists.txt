@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED( VERSION 2.6 )
 CMAKE_POLICY(VERSION 2.6)
-PROJECT(SNR)
+PROJECT(ImageNoise)
 
 
 #####################     ITK    ############################################
@@ -30,7 +30,7 @@ else(GenerateCLP_FOUND)
    message(FATAL_ERROR "GenerateCLP Not Found")
 endif(GenerateCLP_FOUND)
 
-set(Filter SNR)
+set(Filter ImageNoise)
 
 set(${Filter}_SOURCE ${Filter}.cxx)
 GENERATECLP(${Filter}_SOURCE ${Filter}.xml)
