@@ -98,7 +98,7 @@ int main( int argc, char * argv[] )
   reader->SetFileName( inputImage.c_str() ) ;
   reader->Update() ;
   double S = Signal( insideRegion , reader->GetOutput() ) ;
-  std::cout << "Signal average: " << S << std::endl ;
+  std::cout << "Signal average (region 1): " << S << std::endl ;
   if( !outsideRegion.empty() )
   {
     double var = ImageVariance( outsideRegion , reader->GetOutput() ) ;
@@ -112,6 +112,7 @@ int main( int argc, char * argv[] )
       double SNR1 = 0.655*S/sqrt(var) ;
       std::cout << "SNR1: " << SNR1 << std::endl ;
       double S2 = Signal( insideRegion2 , reader->GetOutput() ) ;
+      std::cout << "Signal average (region 2): " << S2 << std::endl ;
       double SNR2 = 0.655*S2/sqrt(var) ;
       std::cout << "SNR2: " << SNR2 << std::endl ;
       std::cout << "CNR: " << ( SNR1 - SNR2 < 0 ? SNR2 - SNR1 : SNR1 - SNR2 ) << std::endl ;
