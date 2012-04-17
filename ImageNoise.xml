@@ -58,6 +58,14 @@
       <longflag>o</longflag>
       <default></default>
     </image>
+    <boolean>
+      <name>useR</name>
+      <label>Use R coefficient</label>
+      <description>The R coefficient is set to 0.655 instead of 1</description>
+      <flag>R</flag>
+      <longflag>useR</longflag>
+      <default>false</default>
+    </boolean>
   </parameters>
 </executable>
 

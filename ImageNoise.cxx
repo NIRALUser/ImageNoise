@@ -92,6 +92,11 @@ int main( int argc, char * argv[] )
     std::cerr << "Specify either a second image or an outside region" << std::endl;
     return EXIT_FAILURE ;
   }
+  double R = 1.0 ;
+  if( useR )
+  {
+    R = 0.655 ;
+  }
   typedef itk::Image< double , 3 > ImageType ;
   typedef itk::ImageFileReader< ImageType > ReaderType ;
   ReaderType::Pointer reader = ReaderType::New() ;
@@ -105,15 +110,15 @@ int main( int argc, char * argv[] )
     if( insideRegion2.empty() )
     {
       std::cout << "Noise standard deviation: " << sqrt(var) << std::endl ;
-      std::cout << "SNR: " << 0.655*S/sqrt(var) << std::endl ;
+      std::cout << "SNR: " << R*S/sqrt(var) << std::endl ;
     }
     else
     {
-      double SNR1 = 0.655*S/sqrt(var) ;
+      double SNR1 = R*S/sqrt(var) ;
       std::cout << "SNR1: " << SNR1 << std::endl ;
       double S2 = Signal( insideRegion2 , reader->GetOutput() ) ;
       std::cout << "Signal average (region 2): " << S2 << std::endl ;
-      double SNR2 = 0.655*S2/sqrt(var) ;
+      double SNR2 = R*S2/sqrt(var) ;
       std::cout << "SNR2: " << SNR2 << std::endl ;
       std::cout << "CNR: " << ( SNR1 - SNR2 < 0 ? SNR2 - SNR1 : SNR1 - SNR2 ) << std::endl ;
     }
